@@ -25,7 +25,8 @@ public class Exercici9_FrancoStival {
 
         if (jugador == 1 && maquina == 2) {
             System.out.println("Ha ganado la maquina");
-        } else if (jugador == 1class Exercici9_0_1FrancoStival"Ha ganado el jugador");
+        } else if (jugador == 1 && maquina == 3) {
+            System.out.println("Ha ganado el jugador");
         }else if (jugador == 2 && maquina == 3){
             System.out.println("Ha ganado la maquina");
         }else if(jugador == 3 && maquina == 1){
