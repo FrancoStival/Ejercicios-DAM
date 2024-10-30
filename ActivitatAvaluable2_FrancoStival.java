@@ -67,6 +67,7 @@ public class ActivitatAvaluable2_FrancoStival {
             System.out.println();
 
         }
+        
         System.out.println("Hem acabat la carrera!");
         if (posicióCotxe1 > posicióCotxe2) {
             System.out.println("Ha guanyat el Cotxe 1");

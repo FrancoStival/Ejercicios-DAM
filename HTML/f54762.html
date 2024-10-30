@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario Personal</title>
+    </head>
+    <body>
+        <h1>Practica Formularios Franco Stival</h1>
+        <form>
+            <fieldset>
+                <legend>Datos personales</legend>
+                <label for="nombre">Nom:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <br><br>
+
+                <label for="cognom">Cognoms:</label required>
+                <input type="text" id="cognom" name="contraseña">
+                <br><br>
+                
+                <label for="email">Email: </label>
+                <input type="email" id="email" name="email" required>
+                <br><br>
+
+                <label for="Telèfon">Telèfon</label required>
+                <input type="tel" id="Telèfon" name="Telèfon" title="Només números, màx. 9 dígits" maxlength="9">
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Informació sobre l'enviament</legend>
+
+                <label for="Adreça">Adreça: </label required>
+                <input type="text" id="Adreça" name="Adreça">
+                <br><br>
+
+                <label for="Ciutat">Ciutat: </label required>
+                <input type="text" id="Ciutat" name="Ciutat" value="Tarragona">
+                <br><br>
+
+                <label for="CodiPostal">Codi Postal: </label required>
+                <input type="text" id="CodiPostal" name="CodiPostal">
+                <small>Exemple: 43001</small>
+
+
+            </fieldset>
+            <fieldset>
+                <legend>Mètode d'enviament</legend>
+                <label for="enviament">Selecciona el mètode: </label>
+                <select id="Metode" name="Metode">
+                    <option value="Estàndard">Estàndard</option>
+                    <option value="Exprés" selected>Exprés</option>
+                    <option value="Internacional">Internacional</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Comentaris</legend>
+                <label for="Comentaris">Escriu els teus comentaris</label>
+                <br>
+                <textarea id="Comentaris" name="Comentaris" rows="4" cols="50"></textarea>
+                
+            </fieldset>
+            <br><br>
+            <fieldset>
+                <label for="Termes">Accepto els termes i condicions</label>
+                <input type="checkbox" id="Termes" name="Termes" required>
+                
+            </fieldset>
+        </form>
+    </body>
+</html>
