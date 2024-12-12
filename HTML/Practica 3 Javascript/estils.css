@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.box {
+    width: 20%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    border: 1px solid #000;
+}
+
+.box1 {
+    background-color: green;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.highlight {
+    border: 3px solid black;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+select {
+    padding: 5px;
+}
