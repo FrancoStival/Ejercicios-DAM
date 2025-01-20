@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tasques</title>
+    <link rel="stylesheet" href="estils.css">
+</head>
+<body>
+    <h1>Gestor de Tasques</h1>
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Escriu una nova tasca..." required>
+        <button type="submit" id="addTaskButton">Afegir Tasca</button>
+    </form>
+    <div id="filters">
+        <button id="showAll">Totes</button>
+        <button id="showPending">Pendents</button>
+        <button id="showCompleted">Completades</button>
+    </div>
+    <ul id="taskList"></ul>
+    <button id="clearCompleted">Esborra Completades</button>
+    <script src="script.js"></script>
+</body>
+</html>
