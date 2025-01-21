@@ -61,7 +61,7 @@ public class Hospital {
                     new paciente("Alberto Perez", "555555555", "88776655", LocalDate.of(1988, 3, 25), 's'),
                     new paciente("Roger Ferrer", "666666666", "77665544", LocalDate.of(2001, 11, 8), 'n'),
                     new paciente("Lucas Aiguadé", "777777777", "66554433", LocalDate.of(1990, 9, 17), 's'),
-                    
+
             };
 
             Hospital hospital = new Hospital(pacients);
