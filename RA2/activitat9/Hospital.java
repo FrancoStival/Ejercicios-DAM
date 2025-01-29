@@ -32,8 +32,7 @@ public class Hospital {
         }
     }
 
-    // Función para mostrar los datos de un paciente según su código de Seguridad
-    // Social
+    // Función para mostrar los datos de un paciente según su código de Seguridad Social
     public void dadesPacient(String numsegsocial) {
         boolean trobat = false;
         for (paciente pacient : pacients) {
@@ -113,3 +112,4 @@ public class Hospital {
 
     }
 }
+
