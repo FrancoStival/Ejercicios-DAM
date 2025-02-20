@@ -1,0 +1,9 @@
+<!ELEMENT comanda (producte+, facturacio, enviament)>
+<!ELEMENT producte (nom, quantitat, preu)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT quantitat (#PCDATA)>
+<!ELEMENT preu (#PCDATA)>
+<!ELEMENT facturacio (#PCDATA)>
+<!ELEMENT enviament (#PCDATA)>
+
+<!-- Falta el elemento <preu> en <producte>: Según el DTD, el elemento <producte> debe contener tres subelementos: <nom>, <quantitat>, y <preu>. El segundo XML que proporcionas solo incluye <nom> y <quantitat>, pero no <preu>, lo cual lo hace inválido.-->

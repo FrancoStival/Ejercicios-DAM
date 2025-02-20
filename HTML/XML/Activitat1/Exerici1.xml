@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+    <llibre id="1">
+        <títol>El nom del vent</títol>
+        <autor>Patrick Rothfuss</autor>
+        <any>2007</any>
+        <gènere>Fantasia</gènere>
+    </llibre>
+    <llibre id="2">
+        <títol>1984</títol>
+        <autor>George Orwell</autor>
+        <any>1949</any>
+        <gènere>Distopia</gènere>
+    </llibre>
+    <llibre id="3">
+        <títol>Cien años de soledad</títol>
+        <autor>Gabriel García Márquez</autor>
+        <any>1967</any>
+        <gènere>Realisme màgic</gènere>
+    </llibre>
+</biblioteca>

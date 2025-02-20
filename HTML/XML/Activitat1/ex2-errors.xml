@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <plat id="1">
+        <nom>Paella Valenciana</nom>
+        <preu>15.50</preu>
+        <categoria>Principal</categoria>
+    </plat>
+    <plat id="2">
+        <nom>Crema Catalana</nom>
+        <preu>5.50</preu>
+        <categoria>Postre</categoria>
+    </plat>
+    <plat id="3">
+        <nom>Patates Braves</nom>
+        <preu>7.00</preu>
+        <categoria>Aperitiu</categoria>
+    </plat>
+</menu>
