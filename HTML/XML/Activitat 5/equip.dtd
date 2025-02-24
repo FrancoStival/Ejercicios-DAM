@@ -1,0 +1,11 @@
+<!DOCTYPE equip [
+<!ELEMENT equip (nom, president, jugadors, entrenador)>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT president (nom)>
+<!ELEMENT jugadors (jugador+)>
+<!ELEMENT jugador (nom, edat, posicio)>
+<!ELEMENT edat (#PCDATA)>
+<!ELEMENT posicio (#PCDATA)>
+<!ELEMENT entrenador (nom, edat, nacionalitat)>
+<!ELEMENT nacionalitat (#PCDATA)>
+]>

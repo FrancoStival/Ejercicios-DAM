@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario Personal</title>
+    </head>
+    <body>
+        <h1>Practica Formularios Franco Stival</h1>
+        <form>
+            <fieldset>
+                <legend>Datos personales</legend>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre"><br><br>
+
+                <label for="contraseña">Contraseña:</label>
+                <input type="password" id="contraseña"
+                    name="contraseña"><br><br>
+                <label for="casilla">Eres Mayor de Edad?:</label>
+                <input type="checkbox" id="casilla" name="casilla"><br><br>
+
+                <p>Selecciona tu genero</p>
+                <label for="opcion1">Hombre:</label>
+                <input type="radio" id="opcion1" name="opcion" value="opcion1">
+                <label for="opcion2">Mujer:</label>
+                <input type="radio" id="opcion2" name="opcion"
+                    value="opcion2"><br><br>
+
+                <label for="so2">Comida Favorita</label> <br />
+                <select id="so2" name="so2" size="5">
+                    <option value="windows" selected="selected">Kebab</option>
+                    <option value="mac">Hambuerguesa</option>
+                    <option value="linux">Pasta</option>
+                    <option value="otro">Pizza</option>
+                </select>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>Envio de archivos</legend>
+                <label for="archivo">Seleccionar archivo:</label>
+                <input type="file" id="archivo" name="archivo"><br><br>
+
+                <input type="hidden" id="oculto" name="oculto"
+                    value="valor oculto">
+                <label for="imagen">Seleccione una imagen:</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+                <br> <br>
+                <input type="submit" value="Enviar">
+                <input type="reset" value="Restablecer">
+                <button type="button">Guardar cambios</button>
+            </fieldset>
+        </form>
+    </body>
+</html>
