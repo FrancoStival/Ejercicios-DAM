@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<botiga xmlns="http://www.dam.cat/botigaEsportiva"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.dam.cat/botigaEsportiva botiga.xsd">
+    <productes>
+        <producte id="p1" nom="Samarreta FC Barcelona" esport="futbol" talla="M" preu="89.99" equip_ref="e1"/>
+        <producte id="p2" nom="Pantalons FC Barcelona" esport="handbol" talla="L" preu="79.99" equip_ref="e1"/>
+        <producte id="p3" nom="Samarreta Madrid" esport="bàsquet" talla="XL" preu="109.99" equip_ref="e2"/>
+    </productes>
+    <equips>
+        <equip id="e1" nom="FC Barcelona">
+            <esports>futbol</esports>
+            <esports>handbol</esports>
+        </equip>
+        <equip id="e2" nom="Real Madrid">
+            <esports>bàsquet</esports>
+        </equip>
+    </equips>
+    <vendes>
+        <venda id="v1" producte_ref="p1" data_venda="2024-01-01" quantitat="2"/>
+        <venda id="v2" producte_ref="p3" data_venda="2024-01-02" quantitat="1" venedor="Marta"/>
+    </vendes>
+</botiga>

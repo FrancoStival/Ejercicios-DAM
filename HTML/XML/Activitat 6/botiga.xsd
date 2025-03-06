@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.dam.cat/botigaEsportiva"
+           xmlns="http://www.dam.cat/botigaEsportiva">
+
+    <xs:element name="botiga">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="productes" type="productesType"/>
+                <xs:element name="equips" type="equipsType"/>
+                <xs:element name="vendes" type="vendesType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="productesType">
+        <xs:sequence>
+            <xs:element name="producte" type="producteType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="producteType">
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="nom" type="xs:string" use="required"/>
+        <xs:attribute name="esport" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="futbol"/>
+                    <xs:enumeration value="bàsquet"/>
+                    <xs:enumeration value="handbol"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="talla" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="S"/>
+                    <xs:enumeration value="M"/>
+                    <xs:enumeration value="L"/>
+                    <xs:enumeration value="XL"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="preu" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:decimal">
+                    <xs:minInclusive value="10"/>
+                    <xs:maxExclusive value="150"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="equip_ref" type="xs:IDREF" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="equipsType">
+        <xs:sequence>
+            <xs:element name="equip" type="equipType" maxOccurs="2"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="equipType">
+        <xs:sequence>
+            <xs:element name="esports" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="nom" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="vendesType">
+        <xs:sequence>
+            <xs:element name="venda" type="vendaType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="vendaType">
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="producte_ref" type="xs:IDREF" use="required"/>
+        <xs:attribute name="data_venda" type="xs:date" use="required"/>
+        <xs:attribute name="quantitat" type="xs:integer" use="required">
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="5"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="venedor" type="xs:string" use="optional"/>
+    </xs:complexType>
+</xs:schema>

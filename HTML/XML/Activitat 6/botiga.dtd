@@ -1,0 +1,27 @@
+<!ELEMENT botiga (productes, equips, vendes)>
+<!ELEMENT productes (producte*)>
+<!ELEMENT equips (equip*)>
+<!ELEMENT vendes (venda*)>
+<!ELEMENT producte EMPTY>
+<!ELEMENT equip (esports+)>
+<!ELEMENT venda EMPTY>
+<!ELEMENT esports (#PCDATA)>
+
+<!ATTLIST producte
+    id ID #REQUIRED
+    nom CDATA #REQUIRED
+    esport CDATA #REQUIRED
+    talla CDATA #REQUIRED
+    preu CDATA #REQUIRED
+    equip_ref IDREF #REQUIRED>
+
+<!ATTLIST equip
+    id ID #REQUIRED
+    nom CDATA #REQUIRED>
+
+<!ATTLIST venda
+    id ID #REQUIRED
+    producte_ref IDREF #REQUIRED
+    data_venda CDATA #REQUIRED
+    quantitat CDATA #REQUIRED
+    venedor CDATA #IMPLIED>
