@@ -1,6 +1,6 @@
 diccionario = {"nombre": "Ana", "edad": 22, "ciudad": "Barcelona"}
-diccionario["profesion"] = "Estudiante"
-diccionario["edad"] = 23
+diccionario["profesion"] = "Estudiante" # Si la clave ya existe, se sobreescribe el valor, sino se agrega la clave y el valor
+diccionario["edad"] = 23 # Si la clave ya existe, se sobreescribe el valor, sino se agrega la clave y el valor
 del diccionario["ciudad"]
 print(diccionario)
 

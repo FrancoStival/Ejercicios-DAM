@@ -1,0 +1,4 @@
+Matemáticas: 8.5
+Ciencias: 7.0
+Historia: 9.0
+Lengua: 8.0

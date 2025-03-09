@@ -1,0 +1,3 @@
+Python es un lenguaje de programación interpretado.
+Es utilizado en desarrollo web, ciencia de datos e inteligencia artificial.
+Es fácil de aprender y tiene una sintaxis clara.
