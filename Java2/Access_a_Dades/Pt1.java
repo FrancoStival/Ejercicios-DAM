@@ -1,4 +1,4 @@
-package Java2.RA1;
+package Java2.Access_a_Dades;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.Map;
 public class Pt1 {
 
     public static void main(String[] args) {
-        String fileName = "Java2/RA1/data/text.txt";
+        String fileName = "Java2/Access_a_Dades/data/text.txt";
         try {
             Pt1 practica = new Pt1();
             practica.procesarFichero(fileName);
