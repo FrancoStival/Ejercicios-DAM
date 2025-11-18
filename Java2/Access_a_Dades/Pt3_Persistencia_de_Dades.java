@@ -155,7 +155,7 @@ public class Pt3_Persistencia_de_Dades {
             System.out.println("Index invàlid.");
             return;
         }
-
+        
         llista.remove(index);
         guardarDades();
         System.out.println("Videojoc eliminat.");
