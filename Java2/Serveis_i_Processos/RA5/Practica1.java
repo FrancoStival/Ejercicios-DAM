@@ -1,4 +1,4 @@
-package Java2.Serveis_i_Processos;
+package RA5;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;

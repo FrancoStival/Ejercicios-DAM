@@ -1,14 +1,15 @@
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
+package RA5;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Base64;
 import java.util.Scanner;
+import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 
-public class Pt6HibridaCertSign {
+public class Pt6HibridCertSign {
 
     public static void main(String[] args) {
         Scanner entrada = null;
