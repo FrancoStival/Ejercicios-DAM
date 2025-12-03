@@ -1,10 +1,9 @@
 // App.java
 import dao.*;
-import model.*;
-
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
+import model.*;
 
 public class App {
     private static final Scanner sc = new Scanner(System.in);
