@@ -1,6 +1,7 @@
 // App.java
 import dao.*;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 import model.*;
@@ -161,7 +162,7 @@ public class App {
         try {
             comandaDAO.crearComanda(com);
             System.out.println("Comanda creada id:" + com.getId() + " total:" + com.getTotal());
-        } catch (Exception ex) {
+        } catch (SQLException ex) {
             System.out.println("Error creant comanda: " + ex.getMessage());
         }
     }

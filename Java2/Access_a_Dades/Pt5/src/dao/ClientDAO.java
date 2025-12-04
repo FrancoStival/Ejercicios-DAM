@@ -1,12 +1,10 @@
-// dao/ClientDAO.java
 package dao;
 
 import db.Connexio;
-import model.Client;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import model.Client;
 
 public class ClientDAO {
 

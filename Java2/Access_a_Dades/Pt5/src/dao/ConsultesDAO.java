@@ -1,17 +1,11 @@
-// dao/ConsultesDAO.java
 package dao;
 
 import db.Connexio;
-
 import java.sql.*;
-import java.math.BigDecimal;
 
 public class ConsultesDAO {
 
-    /**
-     * Llista totes les comandes d'un client amb les seves línies i el producte.
-     * Imprimeix per consola els resultats.
-     */
+
     public void llistarComandesPerClient(int clientId) throws SQLException {
         String sql = "SELECT c.id AS comanda_id, c.data, c.total, " +
                 "lc.id AS linia_id, lc.producte_id, lc.quantitat, lc.preuUnitari, p.nom AS producte_nom " +
@@ -43,9 +37,6 @@ public class ConsultesDAO {
         }
     }
 
-    /**
-     * Mostra el total final de cada comanda (ja emmagatzemat a Comandes.total).
-     */
     public void mostrarTotalsComandes() throws SQLException {
         String sql = "SELECT id, client_id, data, total FROM Comandes ORDER BY data DESC";
         try (Connection conn = Connexio.getConnection();

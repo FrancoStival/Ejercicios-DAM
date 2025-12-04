@@ -1,12 +1,10 @@
 package dao;
 
 import db.Connexio;
-import model.Producte;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.math.BigDecimal;
+import model.Producte;
 
 public class ProducteDAO {
 

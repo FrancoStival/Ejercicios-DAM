@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Descompte {
     private int id;
     private int producteId;
-    private String tipus; // "%" o "€"
+    private String tipus;
     private BigDecimal valor;
 
     public Descompte() {}

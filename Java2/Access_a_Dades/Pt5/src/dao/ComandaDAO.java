@@ -1,28 +1,19 @@
 package dao;
 
 import db.Connexio;
-import model.Comanda;
-import model.LiniaComanda;
-import model.Descompte;
-import model.Producte;
-
-import java.sql.*;
 import java.math.BigDecimal;
+import java.sql.*;
 import java.util.List;
+import model.Comanda;
+import model.Descompte;
+import model.LiniaComanda;
+import model.Producte;
 
 public class ComandaDAO {
 
     private final ProducteDAO producteDAO = new ProducteDAO();
     private final DescompteDAO descompteDAO = new DescompteDAO();
 
-    /**
-     * Crea una comanda amb transacció.
-     * - comprova estoc i decrementa
-     * - insereix en Comandes, LiniesComanda
-     * - calcula total
-     * - després de inserir línies crea savepoint i intenta aplicar descomptes.
-     * Si falla l'aplicació de descomptes fa rollback(savepoint) i guarda tiquet sense descompte.
-     */
     public void crearComanda(Comanda comanda) throws SQLException {
         String insertComandaSQL = "INSERT INTO Comandes (client_id, total) VALUES (?, ?)";
         String insertLiniaSQL = "INSERT INTO LiniesComanda (comanda_id, producte_id, quantitat, preuUnitari) VALUES (?, ?, ?, ?)";
@@ -35,10 +26,8 @@ public class ComandaDAO {
             conn = Connexio.getConnection();
             conn.setAutoCommit(false);
 
-            // 1) Comprovar estoc per cada linia i decrementar
             List<LiniaComanda> linies = comanda.getLinies();
             for (LiniaComanda l : linies) {
-                // comprovar existència i estoc
                 Producte p = producteDAO.trobarPerId(l.getProducteId());
                 if (p == null) throw new SQLException("Producte id " + l.getProducteId() + " no existeix.");
                 if (p.getEstoc() < l.getQuantitat()) throw new SQLException("Estoc insuficient per producte id " + l.getProducteId());
@@ -52,7 +41,6 @@ public class ComandaDAO {
                 }
             }
 
-            // 2) Insertar comanda (total temporal 0)
             int comandaId;
             try (PreparedStatement ps = conn.prepareStatement(insertComandaSQL, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setInt(1, comanda.getClientId());
@@ -64,7 +52,6 @@ public class ComandaDAO {
                 }
             }
 
-            // 3) Insertar línies i calcular total inicial
             BigDecimal total = BigDecimal.ZERO;
             try (PreparedStatement psLinia = conn.prepareStatement(insertLiniaSQL)) {
                 for (LiniaComanda l : linies) {
@@ -79,46 +66,38 @@ public class ComandaDAO {
                 }
             }
 
-            // Actualitzar total temporal
             try (PreparedStatement ps = conn.prepareStatement(updateComandaTotalSQL)) {
                 ps.setBigDecimal(1, total);
                 ps.setInt(2, comandaId);
                 ps.executeUpdate();
             }
 
-            // 4) savepoint abans d'aplicar descomptes
             afterLines = conn.setSavepoint("DespresLinies");
 
-            // 5) intentar aplicar descomptes
             BigDecimal totalAmbDescompte = total;
             try {
                 for (LiniaComanda l : linies) {
                     Descompte d = descompteDAO.trobarPerProducte(l.getProducteId());
                     if (d != null) {
                         if ("%".equals(d.getTipus())) {
-                            // aplicam percentatge sobre línia
                             BigDecimal liniaTotal = l.getPreuUnitari().multiply(new BigDecimal(l.getQuantitat()));
                             BigDecimal desc = liniaTotal.multiply(d.getValor()).divide(new BigDecimal("100"));
                             totalAmbDescompte = totalAmbDescompte.subtract(desc);
                         } else {
-                            // € per unitat? assumim valor en total per línia = valor * quantitat
                             BigDecimal desc = d.getValor().multiply(new BigDecimal(l.getQuantitat()));
                             totalAmbDescompte = totalAmbDescompte.subtract(desc);
                         }
                     }
                 }
 
-                // assegurar no negatiu
                 if (totalAmbDescompte.compareTo(BigDecimal.ZERO) < 0) totalAmbDescompte = BigDecimal.ZERO;
 
-                // Actualitzar total amb descompte
                 try (PreparedStatement ps = conn.prepareStatement(updateComandaTotalSQL)) {
                     ps.setBigDecimal(1, totalAmbDescompte);
                     ps.setInt(2, comandaId);
                     ps.executeUpdate();
                 }
-            } catch (Exception ex) {
-                // rollback al savepoint i deixar el total sense descomptes
+            } catch (SQLException ex) {
                 conn.rollback(afterLines);
                 try (PreparedStatement ps = conn.prepareStatement(updateComandaTotalSQL)) {
                     ps.setBigDecimal(1, total);
