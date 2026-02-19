@@ -12,7 +12,7 @@ class Ogre {
 
         if (!enFuria && vida < 750) {
             enFuria = true;
-            System.out.println("😡 L'OGRE ENTRA EN FÚRIA!");
+            System.out.println("L'OGRE ENTRA EN FÚRIA!");
         }
 
         int danyFinal = enFuria ? dany / 2 : dany;
@@ -27,7 +27,7 @@ class Ogre {
         vida -= danyFinal;
         if (vida < 0) vida = 0;
 
-        System.out.println("⚔️ " + heroi + " fa " + danyFinal + " dany");
+        System.out.println(heroi + " fa " + danyFinal + " dany");
     }
 
     public synchronized int getVida() {
@@ -139,12 +139,12 @@ public class Pt8_Ogre {
             if (h2.estaViu()) actius++;
             if (h3.estaViu()) actius++;
 
-            System.out.printf("⏱️ %02ds | [%s] %d%% (%d/3000 HP)%n", temps, barra, percent, vida);
+            System.out.printf(" %02ds | [%s] %d%% (%d/3000 HP)%n", temps, barra, percent, vida);
             System.out.println("Herois actius: " + actius);
         }
 
         if (!ogre.estaViu()) {
-            System.out.println("💀 L'OGRE HA MORT!");
+            System.out.println("L'OGRE HA MORT!");
             System.out.println("VICTÒRIA DELS HEROIS!");
         } else {
             System.out.println("DERROTA DELS HEROIS!");
