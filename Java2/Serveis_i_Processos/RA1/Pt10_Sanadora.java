@@ -76,7 +76,7 @@ abstract class Heroi implements Runnable {
 
         if (vida <= 0) {
             vida = 0;
-            System.out.println(nom + " cae KO y espera a Eylin");
+            System.out.println(nom + " cae KO y espera a Lift");
 
             try {
                 wait();
@@ -173,11 +173,10 @@ class Sanadora implements Runnable {
 
                     if (h.vida == 0 && mana >= 50) {
 
-                        System.out.println("Eylin cura a " + h.nom);
+                        System.out.println("Lift cura a " + h.nom);
 
                         h.vida = 50;
                         mana -= 50;
-
                         h.notify();
                     }
                 }
